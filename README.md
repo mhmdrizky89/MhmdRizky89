@@ -1,6 +1,7 @@
 <h1 align="center">✨ Rizky ✨</h1>
+
 <p align="center">
-  <img src="https://media.giphy.com/media/11JTxkrmq4bGE0/giphy.gif" width="300" alt="Anime Hacker" />
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2l1ZXEzYjN1Z2M2eGMwNG93ZDIxaGRjMmtydzM3enVjYXVoenI1dyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/mIZ9rPeMKefm0/giphy.gif" width="300" alt="Itachi Sharingan" />
 </p>
 <p align="center">
   <em>💻 Tech Explorer & Digital Enthusiast · ☕ Coffee-Driven Coder</em>
