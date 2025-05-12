@@ -1,5 +1,7 @@
 <h1 align="center">✨ Rizky ✨</h1>
-
+<p align="center">
+  <img src="https://media.giphy.com/media/11JTxkrmq4bGE0/giphy.gif" width="300" alt="Anime Hacker" />
+</p>
 <p align="center">
   <em>💻 Tech Explorer & Digital Enthusiast · ☕ Coffee-Driven Coder</em>
 </p>
