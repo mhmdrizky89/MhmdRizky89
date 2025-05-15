@@ -54,6 +54,14 @@ Focus     : Clean Code | Open Source | Automation
 
 ## 📫 Let's Connect
 
-[![GitHub](https://img.shields.io/badge/GitHub-mhmdrizky-181717?style=for-the-badge&logo=github)](https://github.com/mhmdrizky)
-[![Website](https://img.shields.io/badge/My%20Website-Visit-blue?style=for-the-badge&logo=googlechrome)](https://mhmdrizky89.github.io/MhmdRizky89/)
-[![Instagram](https://img.shields.io/badge/@mhmdrizky__89-Follow-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/mhmdrizky_89)
+<p align="center">
+  <a href="https://github.com/mhmdrizky" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-mhmdrizky-181717?style=for-the-badge&logo=github" alt="GitHub">
+  </a>
+  <a href="https://mhmdrizky89.github.io/MhmdRizky89/" target="_blank">
+    <img src="https://img.shields.io/badge/My%20Website-Visit-blue?style=for-the-badge&logo=googlechrome" alt="Website">
+  </a>
+  <a href="https://instagram.com/mhmdrizky_89" target="_blank">
+    <img src="https://img.shields.io/badge/@mhmdrizky__89-Follow-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram">
+  </a>
+</p>
