@@ -27,7 +27,6 @@
       font-size: 40px;
       margin-top: 50px;
       animation: glitch 1s infinite;
-      position: relative;
     }
 
     @keyframes glitch {
@@ -84,7 +83,16 @@
       box-shadow: 0 0 15px red;
     }
 
-    /* Partikel */
+    iframe {
+      width: 90%;
+      max-width: 400px;
+      height: 225px;
+      border: 2px solid red;
+      border-radius: 10px;
+      box-shadow: 0 0 10px red;
+      margin-top: 20px;
+    }
+
     canvas#particles {
       position: fixed;
       top: 0;
@@ -92,7 +100,6 @@
       z-index: -1;
     }
 
-    /* Cyber Flame */
     .cyber-flame {
       position: fixed;
       bottom: 0;
@@ -122,6 +129,9 @@
 <h1>Hacked By Mhmd Rizky</h1>
 <p class="quote">Tak bisa menemanimu untuk selamanya, namun pernah ada disisinya walau tak ada harganya.</p>
 
+<!-- Video YouTube -->
+<iframe src="https://www.youtube.com/embed/CY5WLrSYPzo?rel=0&autoplay=0&controls=1" allowfullscreen></iframe>
+
 <div class="support">
   Support By:<br>
   SilentCyber | CodeDarkTeam | Banyuwangi Exploiters<br>
@@ -142,7 +152,6 @@
 </audio>
 
 <script>
-  // Partikel bintang cyber
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
