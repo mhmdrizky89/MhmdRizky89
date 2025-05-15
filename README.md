@@ -1,4 +1,3 @@
-
 <h1 align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&center=true&vCenter=true&width=435&lines=Hi+there%2C+I'm+Mhmd+Rizky;A+Silent+Coder+%26+Tech+Explorer" alt="Typing SVG" />
 </h1>
