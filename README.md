@@ -56,10 +56,4 @@ Focus     : Clean Code | Open Source | Automation
 
 - GitHub: [@mhmdrizky](https://github.com/mhmdrizky)
 - LinkedIn: (coming soon)
-- Portofolio: (coming soon)
-
----
-
-<p align="center">
-  <b>“Stay humble, keep learning, and code something awesome.”</b>
-</p>
+- Portofolio: [https://mhmdrizky89.github.io](https://mhmdrizky89.github.io)
