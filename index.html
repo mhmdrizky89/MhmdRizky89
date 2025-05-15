@@ -18,10 +18,9 @@
       color: red;
       font-size: 40px;
       margin-top: 50px;
-      animation: glitch 1s infinite;
-      opacity: 0;
       animation: glitch 1s infinite, fadeIn 2s forwards;
       animation-delay: 0.5s;
+      opacity: 0;
     }
 
     @keyframes glitch {
@@ -38,7 +37,7 @@
       font-style: italic;
       font-size: 16px;
       margin: 20px;
-      min-height: 40px; /* Biar nggak loncat pas ngetik */
+      min-height: 40px;
       opacity: 0;
       animation: fadeIn 2s forwards;
       animation-delay: 2.5s;
@@ -46,7 +45,6 @@
       position: relative;
     }
 
-    /* Terminal-style blinking cursor */
     p.quote#typewriter::after {
       content: "_";
       position: absolute;
@@ -61,27 +59,22 @@
       50% { opacity: 0; }
     }
 
-    .support {
-      color: yellow;
+    .support, .credit, .special-thanks {
       margin-top: 20px;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      animation-delay: 4.5s;
+      color: yellow;
     }
 
-    .credit {
-      color: #00FFFF;
-      margin-top: 10px;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-      animation-delay: 5.5s;
-    }
+    .support { animation-delay: 4.5s; }
+    .credit { animation-delay: 5.5s; color: #00FFFF; }
+    .special-thanks { animation-delay: 6.5s; color: #FFD700; }
 
     .buttons {
       margin-top: 30px;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      animation-delay: 6s;
+      animation-delay: 7s;
     }
 
     .buttons button {
@@ -164,7 +157,7 @@
       color: #00ff00;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      animation-delay: 7s;
+      animation-delay: 8s;
     }
 
     .contact-info a {
@@ -192,6 +185,10 @@
   My Family: NeoXploit | RizkyX | DefsecID<br />
 </div>
 
+<div class="special-thanks">
+  Special Thanks To: All Viewers & Tech Enthusiasts
+</div>
+
 <div class="buttons">
   <button onclick="document.getElementById('music').play()">Play Music</button>
   <button onclick="document.getElementById('music').pause()">Pause Music</button>
@@ -202,11 +199,10 @@
   <source src="audio.mp3" type="audio/mp3" />
 </audio>
 
-<!-- Efek Suara Ketik -->
 <audio id="typeSound" src="type.wav" preload="auto"></audio>
 
 <script>
-  // Partikel bintang
+  // Partikel efek bintang
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
@@ -240,7 +236,7 @@
 
   draw();
 
-  // Efek Mengetik dengan suara
+  // Efek ketik
   const text = '"Apa pun yang kamu lakukan, lakukanlah dengan baik." - Walt Disney.';
   let i = 0;
   const typeSound = document.getElementById('typeSound');
@@ -248,25 +244,24 @@
   function typeWriter() {
     if (i < text.length) {
       document.getElementById("typewriter").innerHTML += text.charAt(i);
-      // Play sound tiap karakter, tapi supaya nggak bentrok delay dipersingkat
       typeSound.currentTime = 0;
-      typeSound.play().catch(() => {}); // catch supaya tidak error di browser yg blok autoplay
+      typeSound.play().catch(() => {});
       i++;
-      setTimeout(typeWriter, 150); // Kecepatan ketik
+      setTimeout(typeWriter, 150);
     } else {
-      // Hapus cursor setelah selesai
       document.getElementById("typewriter").classList.remove("quote");
     }
   }
 
-  setTimeout(typeWriter, 250); // Mulai ngetik setelah 0.25 detik
+  setTimeout(typeWriter, 250);
 </script>
 
 <div class="contact-info">
   Telegram: <a href="https://t.me/mhmdrizky_89" target="_blank">@mhmdrizky_89</a><br />
   CapCut ID: <span style="color: #FFD700;">19491677</span>
 </div>
-<div id="clock" style="margin-top: 30px; font-size: 18px; color: #0ff; font-family: 'Orbitron', monospace; opacity: 0; animation: fadeIn 2s forwards; animation-delay: 7.5s;"></div>
+
+<div id="clock" style="margin-top: 30px; font-size: 18px; color: #0ff; font-family: 'Orbitron', monospace; opacity: 0; animation: fadeIn 2s forwards; animation-delay: 8.5s;"></div>
 
 <script>
   function updateClock() {
@@ -280,5 +275,6 @@
   setInterval(updateClock, 1000);
   updateClock();
 </script>
+
 </body>
 </html>
