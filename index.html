@@ -1,242 +1,133 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pro Hacker Terminal</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+  <meta charset="UTF-8">
+  <title>Hacked by Mhmd Rizky</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: 'Orbitron', monospace;
+      text-align: center;
+      overflow: hidden;
+    }
 
-  /* Background Matrix rain effect */
-  body {
-    margin: 0;
-    height: 100vh;
-    background: black;
-    overflow: hidden;
-    font-family: 'Source Code Pro', monospace;
-    color: #00ff00;
-    display: flex;
-    flex-direction: column;
-  }
+    h1 {
+      color: red;
+      font-size: 40px;
+      margin-top: 50px;
+    }
 
-  canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-  }
+    p.quote {
+      color: white;
+      font-style: italic;
+      font-size: 16px;
+      margin: 20px;
+    }
 
-  /* Terminal window */
-  #terminal {
-    position: relative;
-    background: rgba(0, 0, 0, 0.9);
-    border: 2px solid #00ff00;
-    border-radius: 8px;
-    margin: auto;
-    margin-top: 3rem;
-    padding: 1rem 1.5rem;
-    max-width: 900px;
-    height: 500px;
-    box-shadow: 0 0 20px #00ff00;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-  }
+    .support {
+      color: yellow;
+      margin-top: 20px;
+    }
 
-  #output {
-    flex: 1;
-    overflow-y: auto;
-    white-space: pre-wrap;
-  }
+    .credit {
+      color: #00FFFF;
+      margin-top: 10px;
+    }
 
-  #input-line {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
+    .email {
+      color: #FFD700;
+      font-weight: bold;
+    }
 
-  #input-line span {
-    color: #00ff00;
-    font-weight: bold;
-    user-select: none;
-  }
+    .buttons {
+      margin-top: 30px;
+    }
 
-  #cmd-input {
-    background: transparent;
-    border: none;
-    outline: none;
-    color: #00ff00;
-    font-family: 'Source Code Pro', monospace;
-    font-size: 1rem;
-    flex: 1;
-    padding-left: 0.5rem;
-  }
+    .buttons button {
+      background: transparent;
+      border: 2px solid red;
+      color: red;
+      padding: 10px 20px;
+      margin: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-  /* Scrollbar */
-  #output::-webkit-scrollbar {
-    width: 8px;
-  }
-  #output::-webkit-scrollbar-track {
-    background: #111;
-  }
-  #output::-webkit-scrollbar-thumb {
-    background: #00ff00;
-    border-radius: 4px;
-  }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
 
-  /* Blinking caret */
-  #cmd-input::placeholder {
-    color: #00ff00aa;
-  }
-
-</style>
+    img {
+      width: 200px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
 
-<canvas id="matrix"></canvas>
+<canvas id="stars"></canvas>
 
-<div id="terminal" role="main" aria-label="Terminal Hacker">
-  <div id="output" aria-live="polite"></div>
-  <div id="input-line">
-    <span>&gt;</span>
-    <input type="text" id="cmd-input" autocomplete="off" autofocus placeholder="Type a command..."/>
-  </div>
+<img src="https://i.ibb.co/kDc6Gyv/hacker-back.png" alt="Hacker Image">
+<h1>Hacked By Mhmd Rizky</h1>
+<p class="quote">Tak bisa menemanimu untuk selamanya, namun pernah ada disisinya walau tak ada harganya.</p>
+
+<div class="support">
+  Support By:<br>
+  SilentCyber | CodeDarkTeam | Banyuwangi Exploiters<br>
 </div>
 
+<div class="credit">
+  My Family: NeoXploit | RizkyX | DefsecID<br>
+</div>
+
+<div class="email">
+  mhmdrizky@gmail.com
+</div>
+
+<div class="buttons">
+  <button onclick="document.getElementById('music').play()">Play Music</button>
+  <button onclick="alert('Contact me on IG: @mhmdrizky_89')">Contact Me</button>
+</div>
+
+<audio id="music" loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+</audio>
+
 <script>
-  // Matrix rain effect
-  const canvas = document.getElementById('matrix');
+  // Bintang animasi
+  const canvas = document.getElementById('stars');
   const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  let stars = [];
 
-  let width = window.innerWidth;
-  let height = window.innerHeight;
-  canvas.width = width;
-  canvas.height = height;
-
-  const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-  const fontSize = 18;
-  const columns = Math.floor(width / fontSize);
-  const drops = Array(columns).fill(1);
-
-  function draw() {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-    ctx.fillRect(0, 0, width, height);
-
-    ctx.fillStyle = '#00ff00';
-    ctx.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < drops.length; i++) {
-      const text = letters.charAt(Math.floor(Math.random() * letters.length));
-      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-      if (drops[i] * fontSize > height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
-
-      drops[i]++;
-    }
+  for (let i = 0; i < 150; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5,
+    });
   }
 
-  setInterval(draw, 40);
-
-  window.addEventListener('resize', () => {
-    width = window.innerWidth;
-    height = window.innerHeight;
-    canvas.width = width;
-    canvas.height = height;
-  });
-
-  // Terminal command simulation
-  const output = document.getElementById('output');
-  const input = document.getElementById('cmd-input');
-
-  const commands = {
-    help: `Available commands:
-help        - Show this help
-about       - About this site
-hack        - Simulate hack process
-clear       - Clear the terminal
-whoami      - Show your user name`,
-
-    about: `Pro Hacker Terminal Web
-Made by Muhammad Rizky
-2025
-This is a demo interactive hacker terminal web page.`,
-
-    whoami: `User: Anonymous`,
-
-    hack: `Initializing hack...
-Bypassing security...
-Access granted!
-Downloading confidential data...
-Upload complete!
-Mission success!`
-  };
-
-  function printLine(text = '') {
-    const line = document.createElement('div');
-    line.textContent = text;
-    output.appendChild(line);
-    output.scrollTop = output.scrollHeight;
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "white";
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
   }
 
-  function clearOutput() {
-    output.innerHTML = '';
-  }
-
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const command = input.value.trim().toLowerCase();
-      if (!command) return;
-      printLine('> ' + command);
-
-      if (command === 'clear') {
-        clearOutput();
-      } else if (commands[command]) {
-        // Print with typing effect
-        simulateTyping(commands[command]);
-      } else {
-        printLine(`Unknown command: ${command}. Type 'help' for commands.`);
-      }
-      input.value = '';
-    }
-  });
-
-  // Typing effect for multi-line text
-  function simulateTyping(text) {
-    const lines = text.split('\n');
-    let i = 0;
-
-    function typeLine() {
-      if (i >= lines.length) return;
-      printLine('');
-      let lineText = '';
-      let j = 0;
-      const line = lines[i];
-
-      function typeChar() {
-        if (j < line.length) {
-          lineText += line.charAt(j);
-          output.lastChild.textContent = lineText;
-          j++;
-          setTimeout(typeChar, 30);
-        } else {
-          i++;
-          setTimeout(typeLine, 100);
-        }
-      }
-      typeChar();
-    }
-    typeLine();
-  }
-
-  // Initial welcome message
-  window.onload = () => {
-    simulateTyping("Welcome to Pro Hacker Terminal\nType 'help' for commands.");
-  };
+  drawStars();
 </script>
 
 </body>
