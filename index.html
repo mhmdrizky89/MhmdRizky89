@@ -266,5 +266,19 @@
   Telegram: <a href="https://t.me/mhmdrizky_89" target="_blank">@mhmdrizky_89</a><br />
   CapCut ID: <span style="color: #FFD700;">19491677</span>
 </div>
+<div id="clock" style="margin-top: 30px; font-size: 18px; color: #0ff; font-family: 'Orbitron', monospace; opacity: 0; animation: fadeIn 2s forwards; animation-delay: 7.5s;"></div>
+
+<script>
+  function updateClock() {
+    const now = new Date();
+    const jam = now.getHours().toString().padStart(2, '0');
+    const menit = now.getMinutes().toString().padStart(2, '0');
+    const detik = now.getSeconds().toString().padStart(2, '0');
+    const tanggal = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    document.getElementById('clock').innerHTML = `${tanggal} - ${jam}:${menit}:${detik}`;
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
 </body>
 </html>
