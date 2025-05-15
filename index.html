@@ -7,17 +7,36 @@
   <style>
     body {
       margin: 0;
-      background: black;
       color: white;
       font-family: 'Orbitron', monospace;
       text-align: center;
       overflow: hidden;
+      background: linear-gradient(-45deg, #000000, #1a1a1a, #330033, #0f0f0f);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
       color: red;
       font-size: 40px;
       margin-top: 50px;
+      animation: glitch 1s infinite;
+      position: relative;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red; }
+      20% { text-shadow: -2px -2px blue; }
+      40% { text-shadow: 2px -2px lime; }
+      60% { text-shadow: -2px 2px cyan; }
+      80% { text-shadow: 2px 2px magenta; }
+      100% { text-shadow: 0 0 white; }
     }
 
     p.quote {
@@ -37,11 +56,6 @@
       margin-top: 10px;
     }
 
-    .email {
-      color: #FFD700;
-      font-weight: bold;
-    }
-
     .buttons {
       margin-top: 30px;
     }
@@ -54,13 +68,12 @@
       margin: 5px;
       font-weight: bold;
       cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
+    .buttons button:hover {
+      background: red;
+      color: black;
     }
 
     img {
@@ -68,12 +81,42 @@
       max-width: 400px;
       margin-top: 20px;
       border-radius: 10px;
+      box-shadow: 0 0 15px red;
+    }
+
+    /* Partikel */
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    /* Cyber Flame */
+    .cyber-flame {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 100px;
+      background: radial-gradient(circle at center, #ff0000, transparent 70%);
+      animation: flame 1s infinite alternate ease-in-out;
+      opacity: 0.5;
+      filter: blur(20px);
+      z-index: -1;
+    }
+
+    @keyframes flame {
+      0% { transform: translateX(-50%) scale(1); }
+      100% { transform: translateX(-50%) scale(1.2); }
     }
   </style>
 </head>
 <body>
 
-<canvas id="stars"></canvas>
+<canvas id="particles"></canvas>
+<div class="cyber-flame"></div>
 
 <img src="gambar.png" alt="Gambar">
 <h1>Hacked By Mhmd Rizky</h1>
@@ -99,33 +142,39 @@
 </audio>
 
 <script>
-  // Bintang animasi
-  const canvas = document.getElementById('stars');
+  // Partikel bintang cyber
+  const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  let stars = [];
 
+  let particles = [];
   for (let i = 0; i < 150; i++) {
-    stars.push({
+    particles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      r: Math.random() * 1.5,
+      r: Math.random() * 1.5 + 0.5,
+      d: Math.random() * 1 + 0.5
     });
   }
 
-  function drawStars() {
+  function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "white";
-    stars.forEach(star => {
+    ctx.fillStyle = "#FFFFFF";
+    particles.forEach(p => {
       ctx.beginPath();
-      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fill();
+      p.y += p.d;
+      if (p.y > canvas.height) {
+        p.y = 0;
+        p.x = Math.random() * canvas.width;
+      }
     });
-    requestAnimationFrame(drawStars);
+    requestAnimationFrame(draw);
   }
 
-  drawStars();
+  draw();
 </script>
 
 </body>
