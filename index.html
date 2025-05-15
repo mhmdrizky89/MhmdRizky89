@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Mhmd Rizky</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -19,6 +19,9 @@
       font-size: 40px;
       margin-top: 50px;
       animation: glitch 1s infinite;
+      opacity: 0;
+      animation: glitch 1s infinite, fadeIn 2s forwards;
+      animation-delay: 0.5s;
     }
 
     @keyframes glitch {
@@ -36,36 +39,70 @@
       font-size: 16px;
       margin: 20px;
       min-height: 40px; /* Biar nggak loncat pas ngetik */
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 2.5s;
+      white-space: pre-wrap;
+      position: relative;
+    }
+
+    /* Terminal-style blinking cursor */
+    p.quote#typewriter::after {
+      content: "_";
+      position: absolute;
+      right: 0;
+      animation: blink 1s infinite;
+      color: white;
+      font-weight: bold;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     .support {
       color: yellow;
       margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 4.5s;
     }
 
     .credit {
       color: #00FFFF;
       margin-top: 10px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 5.5s;
     }
 
     .buttons {
       margin-top: 30px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 6s;
     }
 
     .buttons button {
-      background: transparent;
-      border: 2px solid red;
-      color: red;
-      padding: 10px 20px;
+      background: linear-gradient(90deg, red, #ff0066, red);
+      border: none;
+      color: white;
+      padding: 12px 25px;
       margin: 5px;
       font-weight: bold;
       cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 0 10px red, 0 0 20px red;
       transition: all 0.3s ease;
+      font-family: 'Orbitron', monospace;
+      font-size: 14px;
     }
 
     .buttons button:hover {
-      background: red;
+      background: white;
       color: black;
+      box-shadow: 0 0 15px white, 0 0 30px white;
     }
 
     img {
@@ -75,6 +112,9 @@
       border-radius: 50%;
       margin-top: 20px;
       box-shadow: 0 0 15px red;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 1.5s;
     }
 
     video {
@@ -84,6 +124,9 @@
       border-radius: 10px;
       box-shadow: 0 0 10px red;
       margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 3.5s;
     }
 
     canvas#particles {
@@ -111,6 +154,22 @@
       0% { transform: translateX(-50%) scale(1); }
       100% { transform: translateX(-50%) scale(1.2); }
     }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    .contact-info {
+      margin-top: 20px;
+      color: #00ff00;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 7s;
+    }
+
+    .contact-info a {
+      color: #00ffff;
+    }
   </style>
 </head>
 <body>
@@ -118,19 +177,19 @@
 <canvas id="particles"></canvas>
 <div class="cyber-flame"></div>
 
-<img src="gambar.png" alt="Gambar">
+<img src="gambar.png" alt="Gambar" />
 <h1>Mhmd Rizky</h1>
 <p class="quote" id="typewriter"></p>
 
 <video src="video.mp4" autoplay loop muted playsinline></video>
 
 <div class="support">
-  Support By:<br>
-  SilentCyber | CodeDarkTeam | Banyuwangi Exploiters<br>
+  Support By:<br />
+  SilentCyber | CodeDarkTeam | Banyuwangi Exploiters<br />
 </div>
 
 <div class="credit">
-  My Family: NeoXploit | RizkyX | DefsecID<br>
+  My Family: NeoXploit | RizkyX | DefsecID<br />
 </div>
 
 <div class="buttons">
@@ -140,8 +199,11 @@
 </div>
 
 <audio id="music" loop>
-  <source src="audio.mp3" type="audio/mp3">
+  <source src="audio.mp3" type="audio/mp3" />
 </audio>
+
+<!-- Efek Suara Ketik -->
+<audio id="typeSound" src="type.wav" preload="auto"></audio>
 
 <script>
   // Partikel bintang
@@ -178,23 +240,30 @@
 
   draw();
 
-// Efek Mengetik
-const text = '"Apa pun yang kamu lakukan, lakukanlah dengan baik." - Walt Disney.';
-let i = 0;
-function typeWriter() {
-  if (i < text.length) {
-    document.getElementById("typewriter").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typeWriter, 250); // Kecepatan ketik
+  // Efek Mengetik dengan suara
+  const text = '"Apa pun yang kamu lakukan, lakukanlah dengan baik." - Walt Disney.';
+  let i = 0;
+  const typeSound = document.getElementById('typeSound');
+
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(i);
+      // Play sound tiap karakter, tapi supaya nggak bentrok delay dipersingkat
+      typeSound.currentTime = 0;
+      typeSound.play().catch(() => {}); // catch supaya tidak error di browser yg blok autoplay
+      i++;
+      setTimeout(typeWriter, 150); // Kecepatan ketik
+    } else {
+      // Hapus cursor setelah selesai
+      document.getElementById("typewriter").classList.remove("quote");
+    }
   }
-}
 
-setTimeout(typeWriter, 500); // Mulai ngetik setelah 0.5 detik
-
-  setTimeout(typeWriter, 500); // Mulai ngetik setelah 0.5 detik
+  setTimeout(typeWriter, 250); // Mulai ngetik setelah 0.25 detik
 </script>
-<div class="contact-info" style="margin-top: 20px; color: #00ff00;">
-  Telegram: <a href="https://t.me/mhmdrizky_89" target="_blank" style="color: #00ffff;">@mhmdrizky_89</a><br>
+
+<div class="contact-info">
+  Telegram: <a href="https://t.me/mhmdrizky_89" target="_blank">@mhmdrizky_89</a><br />
   CapCut ID: <span style="color: #FFD700;">19491677</span>
 </div>
 </body>
