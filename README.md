@@ -54,6 +54,6 @@ Focus     : Clean Code | Open Source | Automation
 
 ## 📫 Let's Connect
 
-- GitHub: [@mhmdrizky](https://github.com/mhmdrizky)
-- LinkedIn: (coming soon)
-- Portofolio: [https://mhmdrizky89.github.io](https://mhmdrizky89.github.io)
+[![GitHub](https://img.shields.io/badge/GitHub-mhmdrizky-181717?style=for-the-badge&logo=github)](https://github.com/mhmdrizky)
+[![Website](https://img.shields.io/badge/My%20Website-Visit-blue?style=for-the-badge&logo=googlechrome)](https://mhmdrizky89.github.io/MhmdRizky89/)
+[![Instagram](https://img.shields.io/badge/@mhmdrizky__89-Follow-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/mhmdrizky_89)
