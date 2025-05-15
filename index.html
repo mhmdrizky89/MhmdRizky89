@@ -2,12 +2,12 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Mhmd Rizky</title>
+  <title>By Mhmd Rizky</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      background: #000;
+      background: black;
       color: white;
       font-family: 'Orbitron', monospace;
       text-align: center;
@@ -18,33 +18,26 @@
       color: red;
       font-size: 40px;
       margin-top: 50px;
-      animation: glitch 1s infinite;
     }
 
-    @keyframes glitch {
-      0% { text-shadow: 2px 2px red; }
-      20% { text-shadow: -2px -2px blue; }
-      40% { text-shadow: 2px -2px lime; }
-      60% { text-shadow: -2px 2px cyan; }
-      80% { text-shadow: 2px 2px magenta; }
-      100% { text-shadow: 0 0 white; }
-    }
-
-    p.quote {
+    .quote {
       color: white;
       font-style: italic;
       font-size: 16px;
-      margin: 20px;
+      margin: 20px auto;
+      max-width: 600px;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid white;
     }
 
-    .support {
-      color: yellow;
-      margin-top: 20px;
+    .quote::after {
+      content: '|';
+      animation: blink 1s step-start infinite;
     }
 
-    .credit {
-      color: #00FFFF;
-      margin-top: 10px;
+    @keyframes blink {
+      50% { opacity: 0; }
     }
 
     .buttons {
@@ -59,72 +52,45 @@
       margin: 5px;
       font-weight: bold;
       cursor: pointer;
-      transition: all 0.3s ease;
     }
 
-    .buttons button:hover {
-      background: red;
-      color: black;
-    }
-
-    img {
-      width: 100%;
-      max-width: 400px;
-      margin-top: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px red;
-    }
-
-    video {
-      width: 90%;
-      max-width: 400px;
-      border: 2px solid red;
-      border-radius: 10px;
-      box-shadow: 0 0 10px red;
-      margin-top: 20px;
-    }
-
-    canvas#particles {
+    canvas {
       position: fixed;
       top: 0;
       left: 0;
       z-index: -1;
     }
 
-    .cyber-flame {
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+    img {
       width: 200px;
-      height: 100px;
-      background: radial-gradient(circle at center, #ff0000, transparent 70%);
-      animation: flame 1s infinite alternate ease-in-out;
-      opacity: 0.5;
-      filter: blur(20px);
-      z-index: -1;
+      margin-top: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px red;
     }
 
-    @keyframes flame {
-      0% { transform: translateX(-50%) scale(1); }
-      100% { transform: translateX(-50%) scale(1.2); }
+    video.bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -2;
+      object-fit: cover;
+      opacity: 0.2;
     }
   </style>
 </head>
 <body>
 
-<canvas id="particles"></canvas>
-<div class="cyber-flame"></div>
+<canvas id="stars"></canvas>
+<video class="bg-video" src="video.mp4" autoplay loop muted playsinline></video>
 
-<img src="gambar.png" alt="Gambar">
+<img src="gambar.png" alt="Gambar 1">
 <h1>Mhmd Rizky</h1>
-<p class="quote">Tak bisa menemanimu untuk selamanya, namun pernah ada disisinya walau tak ada harganya.</p>
 
-<video src="video.mp4" autoplay loop muted playsinline></video>
+<img src="gambar2.png" alt="Gambar 2" style="margin-top: 10px;">
 
-<p class="quote" style="color: #FFD700; font-size: 18px; margin-top: 30px;">
-  "Apa pun yang kamu lakukan, lakukanlah dengan baik." – Walt Disney
-</p>
+<p id="typing" class="quote"></p>
 
 <div class="buttons">
   <button onclick="document.getElementById('music').play()">Play Music</button>
@@ -137,38 +103,45 @@
 </audio>
 
 <script>
-  const canvas = document.getElementById('particles');
+  // Bintang animasi
+  const canvas = document.getElementById('stars');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+  let stars = [];
 
-  let particles = [];
   for (let i = 0; i < 150; i++) {
-    particles.push({
+    stars.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      r: Math.random() * 1.5 + 0.5,
-      d: Math.random() * 1 + 0.5
+      r: Math.random() * 1.5,
     });
   }
 
-  function draw() {
+  function drawStars() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#FFFFFF";
-    particles.forEach(p => {
+    ctx.fillStyle = "white";
+    stars.forEach(star => {
       ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
       ctx.fill();
-      p.y += p.d;
-      if (p.y > canvas.height) {
-        p.y = 0;
-        p.x = Math.random() * canvas.width;
-      }
     });
-    requestAnimationFrame(draw);
+    requestAnimationFrame(drawStars);
   }
 
-  draw();
+  drawStars();
+
+  // Typing effect
+  const text = '"Apa pun yang kamu lakukan, lakukanlah dengan baik." - Walt Disney';
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 50);
+    }
+  }
+  typeEffect();
 </script>
 
 </body>
