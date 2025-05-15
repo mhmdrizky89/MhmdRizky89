@@ -1,68 +1,243 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portofolio Mhmd Rizky</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background: #333;
-      color: #fff;
-      padding: 1em;
-      text-align: center;
-    }
-    section {
-      padding: 2em;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    footer {
-      text-align: center;
-      padding: 1em;
-      background: #ddd;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pro Hacker Terminal</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+  /* Background Matrix rain effect */
+  body {
+    margin: 0;
+    height: 100vh;
+    background: black;
+    overflow: hidden;
+    font-family: 'Source Code Pro', monospace;
+    color: #00ff00;
+    display: flex;
+    flex-direction: column;
+  }
+
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  /* Terminal window */
+  #terminal {
+    position: relative;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 3rem;
+    padding: 1rem 1.5rem;
+    max-width: 900px;
+    height: 500px;
+    box-shadow: 0 0 20px #00ff00;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #output {
+    flex: 1;
+    overflow-y: auto;
+    white-space: pre-wrap;
+  }
+
+  #input-line {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  #input-line span {
+    color: #00ff00;
+    font-weight: bold;
+    user-select: none;
+  }
+
+  #cmd-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff00;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1rem;
+    flex: 1;
+    padding-left: 0.5rem;
+  }
+
+  /* Scrollbar */
+  #output::-webkit-scrollbar {
+    width: 8px;
+  }
+  #output::-webkit-scrollbar-track {
+    background: #111;
+  }
+  #output::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border-radius: 4px;
+  }
+
+  /* Blinking caret */
+  #cmd-input::placeholder {
+    color: #00ff00aa;
+  }
+
+</style>
 </head>
 <body>
-  <header>
-    <h1>Muhammad Rizky</h1>
-    <p>Calon Web Developer | Belajar di SoloLearn</p>
-  </header>
 
-  <section>
-    <h2>Tentang Saya</h2>
-    <p>Halo! Saya sedang belajar membuat website menggunakan HTML, CSS, dan JavaScript. Ini adalah portofolio pertama saya.</p>
-  </section>
+<canvas id="matrix"></canvas>
 
-  <section>
-    <h2>Proyek</h2>
-    <ul>
-      <li>Website Portofolio ini</li>
-      <li>Tools Termux (rencana)</li>
-    </ul>
-  </section>
+<div id="terminal" role="main" aria-label="Terminal Hacker">
+  <div id="output" aria-live="polite"></div>
+  <div id="input-line">
+    <span>&gt;</span>
+    <input type="text" id="cmd-input" autocomplete="off" autofocus placeholder="Type a command..."/>
+  </div>
+</div>
 
-  <section>
-    <h2>Kontak</h2>
-    <p>Email: kamu@email.com</p>
-    <p><a class="btn" href="#">Download CV</a></p>
-  </section>
+<script>
+  // Matrix rain effect
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
 
-  <footer>
-    <p>© 2025 Muhammad Rizky</p>
-  </footer>
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+
+  const letters = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  const fontSize = 18;
+  const columns = Math.floor(width / fontSize);
+  const drops = Array(columns).fill(1);
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+    ctx.fillRect(0, 0, width, height);
+
+    ctx.fillStyle = '#00ff00';
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters.charAt(Math.floor(Math.random() * letters.length));
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+      if (drops[i] * fontSize > height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+
+      drops[i]++;
+    }
+  }
+
+  setInterval(draw, 40);
+
+  window.addEventListener('resize', () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  });
+
+  // Terminal command simulation
+  const output = document.getElementById('output');
+  const input = document.getElementById('cmd-input');
+
+  const commands = {
+    help: `Available commands:
+help        - Show this help
+about       - About this site
+hack        - Simulate hack process
+clear       - Clear the terminal
+whoami      - Show your user name`,
+
+    about: `Pro Hacker Terminal Web
+Made by Muhammad Rizky
+2025
+This is a demo interactive hacker terminal web page.`,
+
+    whoami: `User: Anonymous`,
+
+    hack: `Initializing hack...
+Bypassing security...
+Access granted!
+Downloading confidential data...
+Upload complete!
+Mission success!`
+  };
+
+  function printLine(text = '') {
+    const line = document.createElement('div');
+    line.textContent = text;
+    output.appendChild(line);
+    output.scrollTop = output.scrollHeight;
+  }
+
+  function clearOutput() {
+    output.innerHTML = '';
+  }
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const command = input.value.trim().toLowerCase();
+      if (!command) return;
+      printLine('> ' + command);
+
+      if (command === 'clear') {
+        clearOutput();
+      } else if (commands[command]) {
+        // Print with typing effect
+        simulateTyping(commands[command]);
+      } else {
+        printLine(`Unknown command: ${command}. Type 'help' for commands.`);
+      }
+      input.value = '';
+    }
+  });
+
+  // Typing effect for multi-line text
+  function simulateTyping(text) {
+    const lines = text.split('\n');
+    let i = 0;
+
+    function typeLine() {
+      if (i >= lines.length) return;
+      printLine('');
+      let lineText = '';
+      let j = 0;
+      const line = lines[i];
+
+      function typeChar() {
+        if (j < line.length) {
+          lineText += line.charAt(j);
+          output.lastChild.textContent = lineText;
+          j++;
+          setTimeout(typeChar, 30);
+        } else {
+          i++;
+          setTimeout(typeLine, 100);
+        }
+      }
+      typeChar();
+    }
+    typeLine();
+  }
+
+  // Initial welcome message
+  window.onload = () => {
+    simulateTyping("Welcome to Pro Hacker Terminal\nType 'help' for commands.");
+  };
+</script>
+
 </body>
 </html>
