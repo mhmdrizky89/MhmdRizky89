@@ -1,5 +1,7 @@
 
-<h1 align="center">Hi there, I'm <span style="color:#facc15;">Mhmd Rizky</span> 👋</h1>
+<h1 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&pause=1000&center=true&vCenter=true&width=435&lines=Hi+there%2C+I'm+Mhmd+Rizky;A+Silent+Coder+%26+Tech+Explorer" alt="Typing SVG" />
+</h1>
 
 <p align="center">
   <i>"Crafting clean code with silent precision, letting impact speak."</i>
@@ -53,7 +55,6 @@ Focus     : Clean Code | Open Source | Automation
 ## 📫 Let's Connect
 
 - GitHub: [@mhmdrizky](https://github.com/mhmdrizky)
-- Email: mhmdrizky05707@gmail.com
 - LinkedIn: (coming soon)
 - Portofolio: (coming soon)
 
