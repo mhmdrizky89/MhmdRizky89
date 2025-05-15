@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Mhmd Rizky</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
@@ -161,7 +162,18 @@
     }
 
     .contact-info a {
-      color: #00ffff;
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .contact-info i {
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .contact-info i:hover {
+      transform: scale(1.3);
+      color: #ff0066;
     }
   </style>
 </head>
@@ -202,7 +214,6 @@
 <audio id="typeSound" src="type.wav" preload="auto"></audio>
 
 <script>
-  // Partikel efek bintang
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
@@ -236,7 +247,6 @@
 
   draw();
 
-  // Efek ketik
   const text = '"jalani dengan tenang,kalau belum tenang,bakar lagi sebatang.';
   let i = 0;
   const typeSound = document.getElementById('typeSound');
@@ -257,8 +267,10 @@
 </script>
 
 <div class="contact-info">
-  Telegram: <a href="https://t.me/mhmdrizky_89" target="_blank">@mhmdrizky_89</a><br />
-  CapCut: <a href="https://mobile.capcutshare.com/s/Zs85uyByX/" target="_blank" style="color: #FFD700; text-decoration: none;">Lihat Profil Saya</a>
+  <p>Find me on:</p>
+  <a href="https://t.me/mhmdrizky_89" target="_blank" title="Telegram"><i class="fab fa-telegram fa-2x"></i></a>
+  <a href="https://www.instagram.com/mhmdrizky_89" target="_blank" title="Instagram"><i class="fab fa-instagram fa-2x"></i></a>
+  <a href="https://github.com/mhmdrizky" target="_blank" title="GitHub"><i class="fab fa-github fa-2x"></i></a>
 </div>
 
 <div id="clock" style="margin-top: 30px; font-size: 18px; color: #0ff; font-family: 'Orbitron', monospace; opacity: 0; animation: fadeIn 2s forwards; animation-delay: 8.5s;"></div>
