@@ -11,245 +11,296 @@
       font-family: 'Orbitron', monospace;
       text-align: center;
       overflow: hidden;
-    }h1 {
-  color: red;
-  font-size: 40px;
-  margin-top: 50px;
-  animation: glitch 1s infinite, fadeIn 2s forwards;
-  animation-delay: 0.5s;
-  opacity: 0;
-}
+    }
+    h1 {
+      color: red;
+      font-size: 40px;
+      margin-top: 50px;
+      animation: glitch 1s infinite, fadeIn 2s forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
 
-@keyframes glitch {
-  0% { text-shadow: 2px 2px red; }
-  20% { text-shadow: -2px -2px blue; }
-  40% { text-shadow: 2px -2px lime; }
-  60% { text-shadow: -2px 2px cyan; }
-  80% { text-shadow: 2px 2px magenta; }
-  100% { text-shadow: 0 0 white; }
-}
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red; }
+      20% { text-shadow: -2px -2px blue; }
+      40% { text-shadow: 2px -2px lime; }
+      60% { text-shadow: -2px 2px cyan; }
+      80% { text-shadow: 2px 2px magenta; }
+      100% { text-shadow: 0 0 white; }
+    }
 
-p.quote {
-  color: white;
-  font-style: italic;
-  font-size: 16px;
-  margin: 20px;
-  min-height: 40px;
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 2.5s;
-  white-space: pre-wrap;
-  position: relative;
-}
+    p.quote {
+      color: white;
+      font-style: italic;
+      font-size: 16px;
+      margin: 20px;
+      min-height: 40px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 2.5s;
+      white-space: pre-wrap;
+      position: relative;
+    }
 
-p.quote#typewriter::after {
-  content: "_";
-  position: absolute;
-  right: 0;
-  animation: blink 1s infinite;
-  color: white;
-  font-weight: bold;
-}
+    p.quote#typewriter::after {
+      content: "_";
+      position: absolute;
+      right: 0;
+      animation: blink 1s infinite;
+      color: white;
+      font-weight: bold;
+    }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
 
-.support, .credit, .special-thanks {
-  margin-top: 20px;
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  color: yellow;
-}
+    .support, .credit, .special-thanks {
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      color: yellow;
+    }
 
-.support { animation-delay: 4.5s; }
-.credit { animation-delay: 5.5s; color: #00FFFF; }
-.special-thanks { animation-delay: 6.5s; color: #FFD700; }
+    .support { animation-delay: 4.5s; }
+    .credit { animation-delay: 5.5s; color: #00FFFF; }
+    .special-thanks { animation-delay: 6.5s; color: #FFD700; }
 
-.buttons {
-  margin-top: 30px;
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 7s;
-}
+    .buttons {
+      margin-top: 30px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 7s;
+    }
 
-.buttons button {
-  background: linear-gradient(90deg, red, #ff0066, red);
-  border: none;
-  color: white;
-  padding: 12px 25px;
-  margin: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 10px;
-  box-shadow: 0 0 10px red, 0 0 20px red;
-  transition: all 0.3s ease;
-  font-family: 'Orbitron', monospace;
-  font-size: 14px;
-}
+    .buttons button {
+      background: linear-gradient(90deg, red, #ff0066, red);
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      margin: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 0 10px red, 0 0 20px red;
+      transition: all 0.3s ease;
+      font-family: 'Orbitron', monospace;
+      font-size: 14px;
+    }
 
-.buttons button:hover {
-  background: white;
-  color: black;
-  box-shadow: 0 0 15px white, 0 0 30px white;
-}
+    .buttons button:hover {
+      background: white;
+      color: black;
+      box-shadow: 0 0 15px white, 0 0 30px white;
+    }
 
-img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-top: 20px;
-  box-shadow: 0 0 15px red;
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 1.5s;
-}
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-top: 20px;
+      box-shadow: 0 0 15px red;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 1.5s;
+    }
 
-video {
-  width: 100%;
-  max-width: 600px;
-  border: 2px solid red;
-  border-radius: 10px;
-  box-shadow: 0 0 10px red;
-  margin-top: 20px;
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 3.5s;
-}
+    video {
+      width: 100%;
+      max-width: 600px;
+      border: 2px solid red;
+      border-radius: 10px;
+      box-shadow: 0 0 10px red;
+      margin-top: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 3.5s;
+    }
 
-canvas#particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
 
-.cyber-flame {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 100px;
-  background: radial-gradient(circle at center, #ff0000, transparent 70%);
-  animation: flame 1s infinite alternate ease-in-out;
-  opacity: 0.5;
-  filter: blur(20px);
-  z-index: -1;
-}
+    .cyber-flame {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 100px;
+      background: radial-gradient(circle at center, #ff0000, transparent 70%);
+      animation: flame 1s infinite alternate ease-in-out;
+      opacity: 0.5;
+      filter: blur(20px);
+      z-index: -1;
+    }
 
-@keyframes flame {
-  0% { transform: translateX(-50%) scale(1); }
-  100% { transform: translateX(-50%) scale(1.2); }
-}
+    @keyframes flame {
+      0% { transform: translateX(-50%) scale(1); }
+      100% { transform: translateX(-50%) scale(1.2); }
+    }
 
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
 
-.contact-info {
-  margin-top: 20px;
-  color: #00ff00;
-  opacity: 0;
-  animation: fadeIn 2s forwards;
-  animation-delay: 8s;
-}
+    .contact-info {
+      margin-top: 20px;
+      color: #00ff00;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 8s;
+    }
 
-.contact-info a {
-  color: #00ffff;
-}
+    .contact-info a {
+      color: #00ffff;
+    }
 
+    #clock {
+      margin-top: 30px;
+      font-size: 18px;
+      color: #0ff;
+      font-family: 'Orbitron', monospace;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 8.5s;
+    }
+
+    /* MEDIA QUERY - RESPONSIVE DESIGN */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+        margin-top: 30px;
+      }
+
+      p.quote {
+        font-size: 14px;
+        margin: 10px;
+      }
+
+      img, video {
+        width: 150px;
+        height: auto;
+      }
+
+      .buttons button {
+        padding: 10px 20px;
+        font-size: 12px;
+      }
+
+      #clock {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
-<body><canvas id="particles"></canvas>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="cyber-flame"></div>
+  <img src="gambar.png" alt="Gambar" />
+  <h1>Mhmd Rizky</h1>
+  <p class="quote" id="typewriter"></p>
+  <video src="video.mp4" autoplay loop muted playsinline></video>
 
-<div class="cyber-flame"></div><img src="gambar.png" alt="Gambar" />
-<h1>Mhmd Rizky</h1>
-<p class="quote" id="typewriter"></p><video src="video.mp4" autoplay loop muted playsinline></video>
+  <div class="support">
+    Support By:<br />
+    SilentCyber | CodeDarkTeam | IndoCyberSecurity<br />
+  </div>
+  <div class="credit">
+    My Family: NeoXploit | RizkyX | DefsecID<br />
+  </div>
+  <div class="special-thanks">
+    Special Thanks To: All Viewers 
+  </div>
+  <div class="buttons">
+    <button onclick="document.getElementById('music').play()">Play Music</button>
+    <button onclick="document.getElementById('music').pause()">Pause Music</button>
+    <button onclick="alert('Contact me on IG: @mhmdrizky_89')">Contact Me</button>
+  </div>
 
-<div class="support">
-  Support By:<br />
-  SilentCyber | CodeDarkTeam | IndoCyberSecurity<br />
-</div><div class="credit">
-  My Family: NeoXploit | RizkyX | DefsecID<br />
-</div><div class="special-thanks">
-  Special Thanks To: All Viewers 
-</div><div class="buttons">
-  <button onclick="document.getElementById('music').play()">Play Music</button>
-  <button onclick="document.getElementById('music').pause()">Pause Music</button>
-  <button onclick="alert('Contact me on IG: @mhmdrizky_89')">Contact Me</button>
-</div><audio id="music" loop>
-  <source src="audio.mp3" type="audio/mp3" />
-</audio><audio id="typeSound" src="type.wav" preload="auto"></audio>
+  <audio id="music" loop>
+    <source src="audio.mp3" type="audio/mp3" />
+  </audio>
+  <audio id="typeSound" src="type.wav" preload="auto"></audio>
 
-<script>
-  // Partikel efek bintang
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  <script>
+    // Partikel efek bintang
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-  let particles = [];
-  for (let i = 0; i < 150; i++) {
-    particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 1.5 + 0.5,
-      d: Math.random() * 1 + 0.5
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#FFFFFF";
-    particles.forEach(p => {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-      p.y += p.d;
-      if (p.y > canvas.height) {
-        p.y = 0;
-        p.x = Math.random() * canvas.width;
-      }
-    });
-    requestAnimationFrame(draw);
-  }
-
-  draw();
-
-  // Efek ketik
-  const text = '"jalani dengan tenang,kalau belum tenang,bakar lagi sebatang.';
-  let i = 0;
-  const typeSound = document.getElementById('typeSound');
-
-  function typeWriter() {
-    if (i < text.length) {
-      document.getElementById("typewriter").innerHTML += text.charAt(i);
-      typeSound.currentTime = 0;
-      typeSound.play().catch(() => {});
-      i++;
-      setTimeout(typeWriter, 150);
-    } else {
-      document.getElementById("typewriter").classList.remove("quote");
+    let particles = [];
+    for (let i = 0; i < 150; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 1.5 + 0.5,
+        d: Math.random() * 1 + 0.5
+      });
     }
-  }
 
-  setTimeout(typeWriter, 250);
-</script><div class="contact-info">
-  Telegram: <a href="https://t.me/mhmdrizky_89" target="_blank">@mhmdrizky_89</a><br />
-  CapCut: <a href="https://mobile.capcutshare.com/s/Zs85uyByX/" target="_blank" style="color: #FFD700; text-decoration: none;">Lihat Profil Saya</a>
-</div><div id="clock" style="margin-top: 30px; font-size: 18px; color: #0ff; font-family: 'Orbitron', monospace; opacity: 0; animation: fadeIn 2s forwards; animation-delay: 8.5s;"></div><script>
-  function updateClock() {
-    const now = new Date();
-    const jam = now.getHours().toString().padStart(2, '0');
-    const menit = now.getMinutes().toString().padStart(2, '0');
-    const detik = now.getSeconds().toString().padStart(2, '0');
-    const tanggal = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    document.getElementById('clock').innerHTML = `${tanggal} - ${jam}:${menit}:${detik}`;
-  }
-  setInterval(updateClock, 1000);
-  updateClock();
-</script></body>
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#FFFFFF";
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.y += p.d;
+        if (p.y > canvas.height) {
+          p.y = 0;
+          p.x = Math.random() * canvas.width;
+        }
+      });
+      requestAnimationFrame(draw);
+    }
+
+    draw();
+
+    // Efek ketik
+    const text = '"jalani dengan tenang, kalau belum tenang, bakar lagi sebatang.';
+    let i = 0;
+    const typeSound = document.getElementById('typeSound');
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        typeSound.currentTime = 0;
+        typeSound.play().catch(() => {});
+        i++;
+        setTimeout(typeWriter, 150);
+      } else {
+        document.getElementById("typewriter").classList.remove("quote");
+      }
+    }
+
+    setTimeout(typeWriter, 250);
+
+    // Clock
+    function updateClock() {
+      const now = new Date();
+      const jam = now.getHours().toString().padStart(2, '0');
+      const menit = now.getMinutes().toString().padStart(2, '0');
+      const detik = now.getSeconds().toString().padStart(2, '0');
+      const tanggal = now.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      document.getElementById('clock').innerHTML = `${tanggal} - ${jam}:${menit}:${detik}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+  <div class="contact-info">
+    Telegram: <a href="https://t.me/mhmdrizky_89" target="_blank">@mhmdrizky_89</a><br />
+    CapCut: <a href="https://mobile.capcutshare.com/s/Zs85uyByX/" target="_blank" style="color: #FFD700; text-decoration: none;">Lihat Profil Saya</a>
+  </div>
+
+  <div id="clock"></div>
+</body>
 </html>
