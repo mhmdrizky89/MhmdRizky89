@@ -35,6 +35,7 @@
       font-style: italic;
       font-size: 16px;
       margin: 20px;
+      min-height: 40px; /* Biar nggak loncat pas ngetik */
     }
 
     .support {
@@ -68,12 +69,12 @@
     }
 
     img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin-top: 20px;
-  box-shadow: 0 0 15px red;
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-top: 20px;
+      box-shadow: 0 0 15px red;
     }
 
     video {
@@ -119,7 +120,7 @@
 
 <img src="gambar.png" alt="Gambar">
 <h1>Mhmd Rizky</h1>
-<p class="quote">Tak bisa menemanimu untuk selamanya, namun pernah ada disisinya walau tak ada harganya.</p>
+<p class="quote" id="typewriter"></p>
 
 <video src="video.mp4" autoplay loop muted playsinline></video>
 
@@ -143,6 +144,7 @@
 </audio>
 
 <script>
+  // Partikel bintang
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
@@ -175,6 +177,19 @@
   }
 
   draw();
+
+  // Efek Mengetik
+  const text = "Tak bisa menemanimu untuk selamanya, namun pernah ada disisinya walau tak ada harganya.";
+  let i = 0;
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 50); // Kecepatan ketik
+    }
+  }
+
+  setTimeout(typeWriter, 500); // Mulai ngetik setelah 0.5 detik
 </script>
 
 </body>
