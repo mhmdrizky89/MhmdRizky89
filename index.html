@@ -302,6 +302,36 @@
   </div>
 
   <div id="clock"></div>
+<!-- Logo Tools Cyber Security -->
+<div class="cyber-logos">
+  <img src="john.png" alt="John the Ripper" />
+  <img src="nmap.png" alt="Nmap" />
+  <img src="sn1per.png" alt="Sn1per" />
+</div>
 
+<style>
+  .cyber-logos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+    animation-delay: 9s;
+  }
+
+  .cyber-logos img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 5px red);
+  }
+
+  .cyber-logos img:hover {
+    transform: scale(1.2);
+  }
+</style>
 </body>
 </html>
