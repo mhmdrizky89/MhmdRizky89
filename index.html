@@ -2,18 +2,26 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Mhmd Rizky</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
   <!-- Font Awesome CDN untuk icon sosial media -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pV6VwFU8P+GpTqIrQiN0OXvBT9y8Nti4+aN7IvUVxLlUfQ+j1R7XOcILw0Jw+cWn72ib4wTfJg1sxL9TIdV+Dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       background: #000;
       color: white;
       font-family: 'Orbitron', monospace;
       text-align: center;
-      overflow: hidden;
+      overflow-y: auto; /* Bisa scroll vertical */
+      overflow-x: hidden;
+      -webkit-user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-text-size-adjust: none;
+      -ms-text-size-adjust: none;
+      user-select: none;
     }
     h1 {
       color: red;
@@ -286,8 +294,12 @@
     // Partikel efek bintang
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
     let particles = [];
     for (let i = 0; i < 150; i++) {
@@ -373,4 +385,4 @@
     </div>
   </footer>
 </body>
-</html>
+    </html>
