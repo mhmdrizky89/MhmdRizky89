@@ -2,26 +2,50 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Mhmd Rizky</title>
+  <meta name="description" content="Profil Mhmd Rizky - Cyber Security Enthusiast dan Developer." />
+  <meta name="keywords" content="Mhmd Rizky, Cyber Security, Developer, Indonesia, GitHub Pages" />
+  <meta name="author" content="Mhmd Rizky" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mhmd Rizky" />
+  <meta property="og:description" content="Profil Mhmd Rizky - Cyber Security Enthusiast dan Developer." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mhmdrizky.github.io/MhmdRizky89/" />
+  <meta property="og:image" content="https://mhmdrizky.github.io/MhmdRizky89/gambar.png" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mhmd Rizky" />
+  <meta name="twitter:description" content="Profil Mhmd Rizky - Cyber Security Enthusiast dan Developer." />
+  <meta name="twitter:image" content="https://mhmdrizky.github.io/MhmdRizky89/gambar.png" />
+  <meta name="twitter:site" content="@mhmdrizky_89" />
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mhmd Rizky",
+    "url": "https://mhmdrizky.github.io/MhmdRizky89/",
+    "sameAs": [
+      "https://www.instagram.com/mhmdrizky_89/"
+    ],
+    "image": "https://mhmdrizky.github.io/MhmdRizky89/gambar.png",
+    "jobTitle": "Cyber Security Enthusiast and Developer",
+    "description": "Profil Mhmd Rizky - Cyber Security Enthusiast dan Developer."
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
-  <!-- Font Awesome CDN untuk icon sosial media -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pV6VwFU8P+GpTqIrQiN0OXvBT9y8Nti4+aN7IvUVxLlUfQ+j1R7XOcILw0Jw+cWn72ib4wTfJg1sxL9TIdV+Dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
       background: #000;
       color: white;
       font-family: 'Orbitron', monospace;
       text-align: center;
-      overflow-y: auto; /* Bisa scroll vertical */
-      overflow-x: hidden;
-      -webkit-user-select: none;
-      -webkit-touch-callout: none;
-      -webkit-text-size-adjust: none;
-      -ms-text-size-adjust: none;
-      user-select: none;
+      overflow: hidden;
     }
     h1 {
       color: red;
@@ -210,7 +234,7 @@
       }
     }
 
-    /* Cyber Logos */
+    /* Logo Tools Cyber Security */
     .cyber-logos {
       display: flex;
       justify-content: center;
@@ -232,32 +256,6 @@
 
     .cyber-logos img:hover {
       transform: scale(1.2);
-    }
-
-    /* Sosial Media Icons Footer */
-    footer {
-      margin-top: 40px;
-      padding: 20px 0;
-      background-color: #111;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-      animation-delay: 10s;
-    }
-
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      font-size: 28px;
-    }
-
-    .social-icons a {
-      color: white;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #ff0066;
     }
   </style>
 </head>
@@ -294,12 +292,8 @@
     // Partikel efek bintang
     const canvas = document.getElementById('particles');
     const ctx = canvas.getContext('2d');
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
     let particles = [];
     for (let i = 0; i < 150; i++) {
@@ -363,26 +357,15 @@
 
   <div class="contact-info">
     Telegram: <a href="https://t.me/mhmdrizky_89" target="_blank">@mhmdrizky_89</a><br />
-    CapCut: <a href="https://mobile.capcutshare.com/s/Zs85uyByX/" target="_blank" style="color: #FFD700; text-decoration: none;">Lihat Profil Saya</a>
+    CapCut: <a href="https://mobile.capcutshare.com/s/Zs85uyByX/" target="_blank" style="color: #FFD700; text-decoration: none;">Lihat Profil Saya</a><br />
+    Instagram: <a href="https://www.instagram.com/mhmdrizky_89/" target="_blank" style="color: #00ffff; text-decoration: none;">@mhmdrizky_89</a>
   </div>
 
   <div id="clock"></div>
-  <!-- Logo Tools Cyber Security -->
+
+
   <div class="cyber-logos">
     <img src="john.png" alt="John the Ripper" />
-    <img src="nmap.png" alt="Nmap" />
-    <img src="sn1per.png" alt="Sn1per" />
   </div>
-
-  <!-- Footer dengan icon sosial media -->
-  <footer>
-    <div class="social-icons">
-      <a href="https://instagram.com/mhmdrizky_89" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://t.me/mhmdrizky_89" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-      <a href="https://github.com/mhmdrizky" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://www.youtube.com/@ikyalvarez" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.facebook.com/profile.php?id=100088365822577" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-    </div>
-  </footer>
 </body>
-    </html>
+      </html>
