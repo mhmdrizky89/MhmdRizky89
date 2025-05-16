@@ -2,42 +2,33 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mhmd Rizky</title>
-  <meta name="description" content="Profil Mhmd Rizky - Cyber Security Enthusiast dan Developer." />
-  <meta name="keywords" content="Mhmd Rizky, Cyber Security, Developer, Indonesia, GitHub Pages" />
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Portfolio dan profil Mhmd Rizky - Cyber Security Enthusiast, Developer, dan Content Creator." />
+  <meta name="keywords" content="Cyber Security, Portfolio, Mhmd Rizky, Developer, Indonesia, CapCut, Telegram, Instagram" />
   <meta name="author" content="Mhmd Rizky" />
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Mhmd Rizky" />
-  <meta property="og:description" content="Profil Mhmd Rizky - Cyber Security Enthusiast dan Developer." />
-  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://mhmdrizky.github.io/MhmdRizky89/" />
+  <meta property="og:title" content="Mhmd Rizky - Cyber Security & Developer" />
+  <meta property="og:description" content="Portfolio dan profil Mhmd Rizky - Cyber Security Enthusiast, Developer, dan Content Creator." />
   <meta property="og:url" content="https://mhmdrizky.github.io/MhmdRizky89/" />
-  <meta property="og:image" content="https://mhmdrizky.github.io/MhmdRizky89/gambar.png" />
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mhmd Rizky" />
-  <meta name="twitter:description" content="Profil Mhmd Rizky - Cyber Security Enthusiast dan Developer." />
-  <meta name="twitter:image" content="https://mhmdrizky.github.io/MhmdRizky89/gambar.png" />
-  <meta name="twitter:site" content="@mhmdrizky_89" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="gambar.png" />
 
-  <!-- JSON-LD Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mhmd Rizky",
-    "url": "https://mhmdrizky.github.io/MhmdRizky89/",
-    "sameAs": [
-      "https://www.instagram.com/mhmdrizky_89/"
-    ],
-    "image": "https://mhmdrizky.github.io/MhmdRizky89/gambar.png",
-    "jobTitle": "Cyber Security Enthusiast and Developer",
-    "description": "Profil Mhmd Rizky - Cyber Security Enthusiast dan Developer."
-  }
-  </script>
-
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome CDN for social icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pO1OJ+2FKO41wUp9e4NULhyR+xxV9GkTK+7SsltMxWLIUcdHHyHyTwyKKoBY9b4FDtJZK9M+q5T+1gd4FfZpjA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
   <style>
     body {
       margin: 0;
@@ -45,7 +36,7 @@
       color: white;
       font-family: 'Orbitron', monospace;
       text-align: center;
-      overflow: hidden;
+      overflow-x: hidden;
     }
     h1 {
       color: red;
@@ -195,6 +186,7 @@
 
     .contact-info a {
       color: #00ffff;
+      text-decoration: none;
     }
 
     #clock {
@@ -207,7 +199,56 @@
       animation-delay: 8.5s;
     }
 
-    /* MEDIA QUERY - RESPONSIVE DESIGN */
+    /* Cyber Logos */
+    .cyber-logos {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 9s;
+    }
+
+    .cyber-logos img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 0 5px red);
+    }
+
+    .cyber-logos img:hover {
+      transform: scale(1.2);
+    }
+
+    /* Social Media Icons Footer */
+    footer {
+      margin-top: 40px;
+      padding: 20px 0;
+      background: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 10s;
+      font-size: 24px;
+    }
+
+    footer a {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ff0040;
+    }
+
+    /* Responsive */
     @media (max-width: 600px) {
       h1 {
         font-size: 28px;
@@ -232,30 +273,11 @@
       #clock {
         font-size: 14px;
       }
-    }
 
-    /* Logo Tools Cyber Security */
-    .cyber-logos {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-top: 40px;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-      animation-delay: 9s;
-    }
-
-    .cyber-logos img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      transition: transform 0.3s ease;
-      filter: drop-shadow(0 0 5px red);
-    }
-
-    .cyber-logos img:hover {
-      transform: scale(1.2);
+      footer {
+        font-size: 20px;
+        gap: 15px;
+      }
     }
   </style>
 </head>
@@ -357,8 +379,7 @@
 
   <div class="contact-info">
     Telegram: <a href="https://t.me/mhmdrizky_89" target="_blank">@mhmdrizky_89</a><br />
-    CapCut: <a href="https://mobile.capcutshare.com/s/Zs85uyByX/" target="_blank" style="color: #FFD700; text-decoration: none;">Lihat Profil Saya</a><br />
-    Instagram: <a href="https://www.instagram.com/mhmdrizky_89/" target="_blank" style="color: #00ffff; text-decoration: none;">@mhmdrizky_89</a>
+    CapCut: <a href="https://mobile.capcutshare.com/s/Zs85uyByX/" target="_blank" style="color: #FFD700; text-decoration: none;">Lihat Profil Saya</a>
   </div>
 
   <div id="clock"></div>
@@ -369,5 +390,33 @@
     <img src="nmap.png" alt="Nmap" />
     <img src="sn1per.png" alt="Sn1per" />
   </div>
+
+  <!-- Footer Sosial Media -->
+  <footer>
+    <a href="https://www.youtube.com/channel/UCxxxxxxxxxxxx" target="_blank" aria-label="YouTube">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://www.facebook.com/mhmdrizky89" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://wa.me/628123456789" target="_blank" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://twitter.com/mhmdrizky89" target="_blank" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://www.google.com/search?q=mhmdrizky" target="_blank" aria-label="Google">
+      <i class="fab fa-google"></i>
+    </a>
+    <a href="https://instagram.com/mhmdrizky_89" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://t.me/mhmdrizky_89" target="_blank" aria-label="Telegram">
+      <i class="fab fa-telegram"></i>
+    </a>
+    <a href="https://mobile.capcutshare.com/s/Zs85uyByX/" target="_blank" aria-label="CapCut">
+      <i class="fas fa-film"></i>
+    </a>
+  </footer>
 </body>
-</html>
+  </html>
