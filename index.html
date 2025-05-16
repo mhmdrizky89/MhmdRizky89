@@ -2,33 +2,10 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mhmd Rizky</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Portfolio dan profil Mhmd Rizky - Cyber Security Enthusiast, Developer, dan Content Creator." />
-  <meta name="keywords" content="Cyber Security, Portfolio, Mhmd Rizky, Developer, Indonesia, CapCut, Telegram, Instagram" />
-  <meta name="author" content="Mhmd Rizky" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://mhmdrizky.github.io/MhmdRizky89/" />
-  <meta property="og:title" content="Mhmd Rizky - Cyber Security & Developer" />
-  <meta property="og:description" content="Portfolio dan profil Mhmd Rizky - Cyber Security Enthusiast, Developer, dan Content Creator." />
-  <meta property="og:url" content="https://mhmdrizky.github.io/MhmdRizky89/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="gambar.png" />
-
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome CDN for social icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-pO1OJ+2FKO41wUp9e4NULhyR+xxV9GkTK+7SsltMxWLIUcdHHyHyTwyKKoBY9b4FDtJZK9M+q5T+1gd4FfZpjA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-
+  <!-- Font Awesome CDN untuk icon sosial media -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pV6VwFU8P+GpTqIrQiN0OXvBT9y8Nti4+aN7IvUVxLlUfQ+j1R7XOcILw0Jw+cWn72ib4wTfJg1sxL9TIdV+Dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       margin: 0;
@@ -36,7 +13,7 @@
       color: white;
       font-family: 'Orbitron', monospace;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
     }
     h1 {
       color: red;
@@ -186,7 +163,6 @@
 
     .contact-info a {
       color: #00ffff;
-      text-decoration: none;
     }
 
     #clock {
@@ -197,6 +173,33 @@
       opacity: 0;
       animation: fadeIn 2s forwards;
       animation-delay: 8.5s;
+    }
+
+    /* MEDIA QUERY - RESPONSIVE DESIGN */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 28px;
+        margin-top: 30px;
+      }
+
+      p.quote {
+        font-size: 14px;
+        margin: 10px;
+      }
+
+      img, video {
+        width: 150px;
+        height: auto;
+      }
+
+      .buttons button {
+        padding: 10px 20px;
+        font-size: 12px;
+      }
+
+      #clock {
+        font-size: 14px;
+      }
     }
 
     /* Cyber Logos */
@@ -223,61 +226,30 @@
       transform: scale(1.2);
     }
 
-    /* Social Media Icons Footer */
+    /* Sosial Media Icons Footer */
     footer {
       margin-top: 40px;
       padding: 20px 0;
-      background: #111;
-      color: white;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      background-color: #111;
       opacity: 0;
       animation: fadeIn 2s forwards;
       animation-delay: 10s;
-      font-size: 24px;
     }
 
-    footer a {
-      color: #fff;
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 28px;
+    }
+
+    .social-icons a {
+      color: white;
       transition: color 0.3s ease;
     }
 
-    footer a:hover {
-      color: #ff0040;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 28px;
-        margin-top: 30px;
-      }
-
-      p.quote {
-        font-size: 14px;
-        margin: 10px;
-      }
-
-      img, video {
-        width: 150px;
-        height: auto;
-      }
-
-      .buttons button {
-        padding: 10px 20px;
-        font-size: 12px;
-      }
-
-      #clock {
-        font-size: 14px;
-      }
-
-      footer {
-        font-size: 20px;
-        gap: 15px;
-      }
+    .social-icons a:hover {
+      color: #ff0066;
     }
   </style>
 </head>
@@ -383,7 +355,6 @@
   </div>
 
   <div id="clock"></div>
-
   <!-- Logo Tools Cyber Security -->
   <div class="cyber-logos">
     <img src="john.png" alt="John the Ripper" />
@@ -391,32 +362,15 @@
     <img src="sn1per.png" alt="Sn1per" />
   </div>
 
-  <!-- Footer Sosial Media -->
+  <!-- Footer dengan icon sosial media -->
   <footer>
-    <a href="https://www.youtube.com/channel/UCxxxxxxxxxxxx" target="_blank" aria-label="YouTube">
-      <i class="fab fa-youtube"></i>
-    </a>
-    <a href="https://www.facebook.com/mhmdrizky89" target="_blank" aria-label="Facebook">
-      <i class="fab fa-facebook"></i>
-    </a>
-    <a href="https://wa.me/628123456789" target="_blank" aria-label="WhatsApp">
-      <i class="fab fa-whatsapp"></i>
-    </a>
-    <a href="https://twitter.com/mhmdrizky89" target="_blank" aria-label="Twitter">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="https://www.google.com/search?q=mhmdrizky" target="_blank" aria-label="Google">
-      <i class="fab fa-google"></i>
-    </a>
-    <a href="https://instagram.com/mhmdrizky_89" target="_blank" aria-label="Instagram">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://t.me/mhmdrizky_89" target="_blank" aria-label="Telegram">
-      <i class="fab fa-telegram"></i>
-    </a>
-    <a href="https://mobile.capcutshare.com/s/Zs85uyByX/" target="_blank" aria-label="CapCut">
-      <i class="fas fa-film"></i>
-    </a>
+    <div class="social-icons">
+      <a href="https://instagram.com/mhmdrizky_89" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/mhmdrizky_89" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+      <a href="https://github.com/mhmdrizky" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.youtube.com/@ikyalvarez" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100088365822577" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    </div>
   </footer>
 </body>
-  </html>
+</html>
